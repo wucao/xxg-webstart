@@ -1,2 +1,3 @@
 /.idea
-/xxg-webstart.iml
+/*.iml
+/target
