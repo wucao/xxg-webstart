@@ -37,6 +37,30 @@
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
           </a>
+
+          <!-- Navbar Right Menu -->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+
+              <li>
+                <a>
+                  <span>${pageContext.request.remoteUser}</span>
+                </a>
+              </li>
+              <li>
+                <form action="${pageContext.request.contextPath}/logout" method="post" style="display: none;" id="logout-form">
+                </form>
+                <a href="#" title="登出" id="logout-btn"><i class="fa fa-sign-out"></i></a>
+                <script type="text/javascript">
+                  $(document).ready(function() {
+                    $("#logout-btn").click(function() {
+                      $("#logout-form").submit();
+                    });
+                  });
+                </script>
+              </li>
+            </ul>
+          </div>
         </nav>
       </header>
       <!-- Left side column. contains the logo and sidebar -->
