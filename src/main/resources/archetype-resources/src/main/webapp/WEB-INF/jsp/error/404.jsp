@@ -6,7 +6,7 @@
   <div class="error-content" style="padding-top: 30px;">
     <h3><i class="fa fa-warning text-yellow"></i> 页面不存在！</h3>
     <p>
-      你访问的页面不再地球上，回火星看看吧！
+      你访问的页面不在地球上，回火星看看吧！
     </p>
   </div>
 </div>
