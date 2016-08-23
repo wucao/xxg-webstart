@@ -70,4 +70,9 @@
 		<location>/WEB-INF/jsp/error/500.jsp</location>
 	</error-page>
 
+	<!-- 禁用jsessionid -->
+	<session-config>
+		<tracking-mode>COOKIE</tracking-mode>
+	</session-config>
+
 </web-app>
