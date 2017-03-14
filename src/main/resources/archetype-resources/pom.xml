@@ -60,6 +60,13 @@
 				<configuration>
 					<overwrite>true</overwrite>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -168,9 +175,6 @@
 	<profiles>
 		<profile>
 			<id>product</id>
-			<properties>
-				<maven.war.webxml>${basedir}/target/web-xml/web.xml</maven.war.webxml>
-			</properties>
 			<build>
 				<plugins>
 					<plugin>
@@ -184,11 +188,6 @@
 										<copy todir="${basedir}/target/classes/" overwrite="true">
 											<fileset dir="${basedir}/src/main/resources/distribute/product/" />
 										</copy>
-										<copy file="${basedir}/src/main/webapp/WEB-INF/web.xml"
-											  todir="${basedir}/target/web-xml" />
-										<replace file="${basedir}/target/web-xml/web.xml"
-												 token="&lt;param-value&gt;dev&lt;/param-value&gt;"
-												 value="&lt;param-value&gt;test&lt;/param-value&gt;" />
 									</target>
 								</configuration>
 								<goals>
@@ -202,9 +201,6 @@
 		</profile>
 		<profile>
 			<id>test</id>
-			<properties>
-				<maven.war.webxml>${basedir}/target/web-xml/web.xml</maven.war.webxml>
-			</properties>
 			<build>
 				<plugins>
 					<plugin>
@@ -218,11 +214,6 @@
 										<copy todir="${basedir}/target/classes/" overwrite="true">
 											<fileset dir="${basedir}/src/main/resources/distribute/test/" />
 										</copy>
-										<copy file="${basedir}/src/main/webapp/WEB-INF/web.xml"
-											  todir="${basedir}/target/web-xml" />
-										<replace file="${basedir}/target/web-xml/web.xml"
-												 token="&lt;param-value&gt;dev&lt;/param-value&gt;"
-												 value="&lt;param-value&gt;product&lt;/param-value&gt;" />
 									</target>
 								</configuration>
 								<goals>
