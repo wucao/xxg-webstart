@@ -9,5 +9,5 @@ mvn install
 
 ### 创建项目
 ```
-mvn archetype:generate -B -DarchetypeGroupId=com.xxg -DarchetypeArtifactId=xxg-webstart -DarchetypeVersion=1.0.3 -DgroupId=my.group -DartifactId=my-artifact -Dversion=1.0-SNAPSHOT -DarchetypeCatalog=internal
+mvn archetype:generate -B -DarchetypeGroupId=com.xxg -DarchetypeArtifactId=xxg-webstart -DarchetypeVersion=1.0.4 -DgroupId=my.group -DartifactId=my-artifact -Dversion=1.0-SNAPSHOT -DarchetypeCatalog=internal
 ```
