@@ -11,6 +11,6 @@
 
     </div><!-- ./wrapper -->
 
-    <script src="${pageContext.request.contextPath}/resources/admin/dist/js/app.min.js"></script>
+    <script src="//cdn.bootcss.com/admin-lte/2.3.11/js/app.min.js"></script>
   </body>
 </html>
