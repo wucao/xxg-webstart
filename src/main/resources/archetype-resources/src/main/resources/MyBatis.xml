@@ -17,7 +17,7 @@
 	</bean>
 	<bean  class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-		<property name="basePackage" value="${groupId}.mapper" />
+		<property name="basePackage" value="${groupId}.mapper,${groupId}.mbg.mapper" />
 	</bean>
 	<tx:annotation-driven transaction-manager="txManager"/>
     <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
