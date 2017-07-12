@@ -11,6 +11,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<mybatis.generator.config>src/main/resources/generatorConfig.xml</mybatis.generator.config>
 	</properties>
 	
 	<pluginRepositories>
@@ -58,6 +59,7 @@
 					</dependency>
 				</dependencies>
 				<configuration>
+					<configurationFile>${mybatis.generator.config}</configurationFile>
 					<overwrite>true</overwrite>
 				</configuration>
 				<executions>
@@ -180,6 +182,9 @@
 	<profiles>
 		<profile>
 			<id>product</id>
+			<properties>
+				<mybatis.generator.config>src/main/resources/distribute/product/generatorConfig.xml</mybatis.generator.config>
+			</properties>
 			<build>
 				<plugins>
 					<plugin>
