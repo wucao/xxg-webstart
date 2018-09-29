@@ -15,9 +15,9 @@
         </commentGenerator>
     
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-            connectionURL="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8"
-            userId="test"
-            password="test" />
+            connectionURL="${mbg.jdbcURL}"
+            userId="${mbg.username}"
+            password="${mbg.password}" />
  
         <javaModelGenerator targetPackage="${groupId}.mbg.bean" targetProject="src/main/java" />
  

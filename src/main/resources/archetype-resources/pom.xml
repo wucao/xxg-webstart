@@ -11,7 +11,13 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- MyBatis Generator -->
 		<mybatis.generator.config>src/main/resources/generatorConfig.xml</mybatis.generator.config>
+		<mbg.jdbcURL>xxx</mbg.jdbcURL>
+		<mbg.username>xxx</mbg.username>
+		<mbg.password>xxx</mbg.password>
+
 	</properties>
 	
 	<pluginRepositories>
@@ -183,7 +189,12 @@
 		<profile>
 			<id>product</id>
 			<properties>
-				<mybatis.generator.config>src/main/resources/distribute/product/generatorConfig.xml</mybatis.generator.config>
+
+				<!-- MyBatis Generator -->
+				<mbg.jdbcURL>xxx</mbg.jdbcURL>
+				<mbg.username>xxx</mbg.username>
+				<mbg.password>xxx</mbg.password>
+
 			</properties>
 			<build>
 				<plugins>
@@ -211,6 +222,14 @@
 		</profile>
 		<profile>
 			<id>test</id>
+			<properties>
+
+				<!-- MyBatis Generator -->
+				<mbg.jdbcURL>xxx</mbg.jdbcURL>
+				<mbg.username>xxx</mbg.username>
+				<mbg.password>xxx</mbg.password>
+
+			</properties>
 			<build>
 				<plugins>
 					<plugin>
