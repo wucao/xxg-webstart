@@ -6,12 +6,14 @@
 <generatorConfiguration>
  
     <context id="mysqlgenerator" targetRuntime="MyBatis3">
-    
+
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
+        <plugin type="com.xxg.mybatis.plugins.MySQLReplacePlugin" />
     	<plugin type="com.xxg.mybatis.plugins.MySQLLimitPlugin" />
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
 
         <commentGenerator>
-            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true" />
         </commentGenerator>
     
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
