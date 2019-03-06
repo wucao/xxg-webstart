@@ -26,7 +26,7 @@
 
 	<build>
 		<filters>
-			<filter>profiles/application-${activeProfile}.properties</filter>
+			<filter>src/main/resources/profiles/application-${activeProfile}.properties</filter>
 		</filters>
 		<resources>
 			<resource>
