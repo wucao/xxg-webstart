@@ -4,9 +4,8 @@
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
  
 <generatorConfiguration>
- 
+    <properties resource="profiles/application-${activeProfile}.properties"></properties>
     <context id="mysqlgenerator" targetRuntime="MyBatis3">
-
         <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
         <plugin type="com.xxg.mybatis.plugins.MySQLReplacePlugin" />
     	<plugin type="com.xxg.mybatis.plugins.MySQLLimitPlugin" />
@@ -15,18 +14,12 @@
         <commentGenerator>
             <property name="suppressAllComments" value="true" />
         </commentGenerator>
-    
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-            connectionURL="${mbg.jdbcURL}"
-            userId="${mbg.username}"
-            password="${mbg.password}" />
- 
+            connectionURL="${datasource.url}"
+            userId="${datasource.username}"
+            password="${datasource.password}" />
         <javaModelGenerator targetPackage="${groupId}.mbg.bean" targetProject="src/main/java" />
- 
         <sqlMapGenerator targetPackage="${groupId}.mbg.mapper" targetProject="src/main/resources" />
- 
         <javaClientGenerator type="XMLMAPPER" targetPackage="${groupId}.mbg.mapper" targetProject="src/main/java" />
-
     </context>
-     
 </generatorConfiguration>

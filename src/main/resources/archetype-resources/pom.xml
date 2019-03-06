@@ -11,23 +11,29 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 
-		<!-- MyBatis Generator -->
-		<mybatis.generator.config>src/main/resources/generatorConfig.xml</mybatis.generator.config>
-		<mbg.jdbcURL>xxx</mbg.jdbcURL>
-		<mbg.username>xxx</mbg.username>
-		<mbg.password>xxx</mbg.password>
-
+		<activeProfile>dev</activeProfile>
 	</properties>
 	
 	<pluginRepositories>
 		<pluginRepository>
-			<id>mybatis-generator-limit-plugin-mvn-repo</id>
-			<url>https://raw.github.com/wucao/mybatis-generator-limit-plugin/mvn-repo/</url>
+			<id>xxg-repository</id>
+			<url>http://repo.maven.xxgblog.com/</url>
 		</pluginRepository>
 	</pluginRepositories>
 
 	<build>
+		<filters>
+			<filter>profiles/application-${activeProfile}.properties</filter>
+		</filters>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -46,6 +52,19 @@
 					<webApp>
 						<contextPath>/</contextPath>
 					</webApp>
+					<systemProperties>
+						<systemProperty>
+							<name>activeProfile</name>
+							<value>${activeProfile}</value>
+						</systemProperty>
+					</systemProperties>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.2</version>
+				<configuration>
+					<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -65,7 +84,6 @@
 					</dependency>
 				</dependencies>
 				<configuration>
-					<configurationFile>${mybatis.generator.config}</configurationFile>
 					<overwrite>true</overwrite>
 				</configuration>
 				<executions>
@@ -81,7 +99,7 @@
 
 	<dependencies>
 
-		<!-- spring -->
+		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -187,70 +205,16 @@
 		<profile>
 			<id>product</id>
 			<properties>
-
-				<!-- MyBatis Generator -->
-				<mbg.jdbcURL>xxx</mbg.jdbcURL>
-				<mbg.username>xxx</mbg.username>
-				<mbg.password>xxx</mbg.password>
-
+				<activeProfile>product</activeProfile>
+				<applicationProperties>profiles/application-product.properties</applicationProperties>
 			</properties>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<version>1.8</version>
-						<executions>
-							<execution>
-								<phase>compile</phase>
-								<configuration>
-									<target>
-										<copy todir="${basedir}/target/classes/" overwrite="true">
-											<fileset dir="${basedir}/src/main/resources/distribute/product/" />
-										</copy>
-									</target>
-								</configuration>
-								<goals>
-									<goal>run</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 		<profile>
 			<id>test</id>
 			<properties>
-
-				<!-- MyBatis Generator -->
-				<mbg.jdbcURL>xxx</mbg.jdbcURL>
-				<mbg.username>xxx</mbg.username>
-				<mbg.password>xxx</mbg.password>
-
+				<activeProfile>test</activeProfile>
+				<applicationProperties>profiles/application-test.properties</applicationProperties>
 			</properties>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<version>1.8</version>
-						<executions>
-							<execution>
-								<phase>compile</phase>
-								<configuration>
-									<target>
-										<copy todir="${basedir}/target/classes/" overwrite="true">
-											<fileset dir="${basedir}/src/main/resources/distribute/test/" />
-										</copy>
-									</target>
-								</configuration>
-								<goals>
-									<goal>run</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 	</profiles>
 

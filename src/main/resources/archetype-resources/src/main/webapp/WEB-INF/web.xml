@@ -10,6 +10,12 @@
 		<param-value>false</param-value>
 	</context-param>
 
+	<!-- 启用Spring profile -->
+	<context-param>
+		<param-name>spring.profiles.active</param-name>
+		<param-value>${activeProfile}</param-value>
+	</context-param>
+
 	<!-- UTF-8编码过滤器 -->
 	<filter>
 		<filter-name>characterEncodingFilter</filter-name>
